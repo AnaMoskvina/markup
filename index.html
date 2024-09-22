@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <title>Moskvina, markup task</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="index.css">
     <link href="https://db.onlinewebfonts.com/c/575fc498ad34ad0f411e618dad9ed36a?family=Graphik+LC+Web+Regular" rel="stylesheet">
     <script src="index.js" defer></script>
 </head>
 
-<body>
+<body class="body">
     <header class="header">
         <div class="header__image_block"></div>
         <div class="header__coupon_block">
@@ -17,9 +18,9 @@
             <div class="coupon_block__coupon_note">Use code <span class="important_text">10FRIDAY</span> <span class="additional_text">at checkout</span></div>
         </div>
         <div class="header__cta_block">
-            <button type="button" class="shop_button"><span class="shop_button__text">Shop now</span></button>
-            <button type="button" class="shop_button__mini"></button>
-            <button type="button" class="close_button header__close_button"></button>
+            <button type="button" class="shop_button"><span class="shop_button__text">Shop</span> now</button>
+            <button type="button" class="shop_button__mini" aria-label="shop now" title="shop now"></button>
+            <button type="button" class="close_button header__close_button" aria-label="close banner" title="close banner"></button>
         </div>
     </header>
     <main class="main">
@@ -28,9 +29,9 @@
                 <p class="card_banner__black_friday">Black Friday</p>
                 <p class="card_banner__discount important_text">10%OFF</p>
                 <p class="card_banner__coupon">Use code <span class="important_text">10FRIDAY</span> at checkout</p>
-                <button type="button" class="card_banner__cta" >Shop now through Monday</button>
+                <button type="button" class="card_banner__cta">Shop now<span class="card_banner__cta_text"> through Monday</span></button>
             </div>
-            <button class="close_button card_banner__close_button"></button>
+            <button class="close_button card_banner__close_button" aria-label="close banner" title="close banner"></button>
         </div>
     </main>
 </body>

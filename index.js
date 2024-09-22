@@ -8,7 +8,7 @@ function handleIntersection(entries) {
     if (entries[0].intersectionRatio === 0) {
         cardBanner.classList.remove('invisible');
         observer.unobserve(target);
-    } 
+    }
 }
 
 const observer = new IntersectionObserver(handleIntersection, {threshold: 0});

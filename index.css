@@ -6,14 +6,11 @@
     font-family: "Graphik LC Web Regular", sans-serif;
 }
 
-body {
+.body {
     min-height: 200vh;
     background-color: var(--color-white);
-}
-
-.main {
-    /* container-type: size;
-    container-name: main-container; */
+    display: grid;
+    grid-template-rows: 108px 1fr;
 }
 
 .header {
@@ -24,27 +21,28 @@ body {
     background-color: var(--color-black);
     color: var(--color-white);
     height: 54px;
-    padding: 0 12px;
-    container-type: size;
-    container-name: header-container;
+    padding: 0 24px 0 12px;
+    container: header-container / inline-size;
+}
+
+.main {
+    container: main-container / size;
+    position: relative;
 }
 
 .header__image_block {
     background-image: url('assets/gift.png');
     width: 212px;
     height: 100%;
-    background-position-y: 26%;
-    background-size: 200%;
+    background-position: 3% 26%;
+    background-size: 230%;
 }
 
 .shop_button {
-    width: 104px;
+    width: 115px;
     height: 38px;
     background-color: var(--color-white);
     border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: var(--color-black);
     font-size: 16px;
 }
@@ -56,9 +54,9 @@ body {
 }
 
 .shop_button__text {
-    background:  var(--color-black) linear-gradient(90deg, var(--color-white), transparent); 
-        -webkit-text-fill-color: transparent; 
-        -webkit-background-clip: text; 
+    background: var(--color-black) linear-gradient(90deg,  color-mix(in srgb, var(--color-white) 50%, transparent), var(--color-black));
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
 }
 .close_button {
     width: 24px;
@@ -80,9 +78,10 @@ body {
 .header__coupon_block {
     display: flex;
     align-items: center;
-    gap: 20px;
-    container-name: coupon_block;
-    /* container-type: size; */
+    justify-content: center;
+    gap: 28px;
+    flex: 1;
+    margin: 0 52px 0 0;
 }
 
 .coupon_block__discount_note {
@@ -93,12 +92,13 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
-    position: fixed;
-    bottom: 12px;
-    right: 12px;
+    position: sticky;
+    top: calc(100vh - 349px - 12px);
+    left: calc(100vw - 600px - 12px);
     width: 600px;
     height: 349px;
     background-color: var(--color-black);
+    background-position: 1px -24px;
     border-radius: 16px;
     color:  var(--color-white);
     background-image: url('assets/gift.png');
@@ -111,15 +111,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 12px;
-    gap: 20px;
+    gap: 19px;
+    margin: 12px 28px 0;
 }
 
 .card_banner__cta {
+    margin-top: 24px;
     background-color: color-mix(in srgb, var(--color-white) 10%, transparent);
     color: var(--color-white);
     border-radius: 14px;
     padding: 12px 24px;
+    font-size: 16px;
+    letter-spacing: 0.7px;
 }
 
 .card_banner__black_friday {
@@ -130,8 +133,8 @@ body {
     font-size: 40px;
     background: linear-gradient(90deg, #7D5317, 
     #BAA05C, 55%, #EDDF95); 
-        -webkit-text-fill-color: transparent; 
-        -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
 }
 
 .card_banner__coupon {
@@ -140,8 +143,8 @@ body {
 
 .card_banner__close_button {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 15px;
+    right: 15px;
 }
 
 .important_text {
@@ -158,24 +161,29 @@ body {
     }
     .header__image_block {
         width: 185px;
+        background-size: 259%;
+        background-position: 10% 26%;
     }
 }
 
-@container main (max-width: 1024px) {
+@container main-container (max-width: 624px) {
     .card_banner {
+        left: 0;
+        top: calc(100vh - 349px);
         justify-content: center;
-        background-position-x: 140%;
-        right: 0;
+        background-position: 81% 56%;
         border-radius: 0;
         width: 100%;
         background-repeat: no-repeat;
-        bottom: 0;
-        right: 0;
-        border-radius: 0;
+        background-size: 155%;
+    }
+
+    .card_banner__cta_text {
+        display: none;
     }
 }
 
-@container header-container (max-width: 460px) {
+@container header-container (max-width: 680px) {
     .header__image_block {
         width: 159px;
     }
@@ -191,21 +199,28 @@ body {
     .header__coupon_block {
         gap: 4px;
         flex-shrink: 0;
+        margin: 0;
     }
     .coupon_block__black_friday_note::after {
         content: ',';
     }
     .header__image_block {
         width: 140px;
-        background-position-y: 25%;
-        background-size: 260%;
-        background-position-x: 22%;
+        background-size: 290%;
+        background-position: 20% 25%;
     }
 }
 
 @media (max-width: 1024px) {
     .header {
         padding-left: 0;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 680px) {
+    .header {
+        padding-right: 28px;
     }
 }
 
