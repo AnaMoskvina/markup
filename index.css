@@ -183,7 +183,7 @@
     }
 }
 
-@container header-container (max-width: 680px) {
+@container header-container (max-width: 750px) {
     .header__image_block {
         width: 159px;
     }
@@ -218,7 +218,7 @@
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 750px) {
     .header {
         padding-right: 28px;
     }
